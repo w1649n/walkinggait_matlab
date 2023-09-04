@@ -1,0 +1,70 @@
+%% 畫圖
+figure(1)
+title('foot trajectory x');hold on;
+plot(Time, Lx, Time, Rx);
+xlabel('time(ms)');
+ylabel('x(cm)');
+
+figure(2)
+title('foot trajectory y');hold on;
+plot(Time, Ly, Time, Ry);
+xlabel('time(ms)');
+ylabel('y(cm)');
+
+figure(3)
+title('foot trajectory z');hold on;
+plot(Time, Lz, Time, Rz);
+xlabel('time(ms)');
+ylabel('z(cm)');
+
+figure(4)
+title('Com trajectory X');hold on;
+plot(Time, Cpx);
+xlabel('time(ms)');
+ylabel('x(cm)');
+
+figure(5)
+title('Com trajectory_Y');hold on;
+plot(Time, Cpy);
+xlabel('time(ms)');
+ylabel('y(cm)');
+
+figure(6)
+title('Com_trajectory');hold on;
+plot(Cpx, Cpy);
+xlabel('x(cm)');
+ylabel('y(cm)');
+
+figure(7)
+title('Simulate walkinggait')
+plot3(Lx,Ly,Lz,'m-');hold on;
+plot3(Rx,Ry,Rz,'g-');hold on;
+plot3(Cpx,Cpy,Cpz,'ro-');hold on;
+plot3(zmpx,zmpy,zmpz,'b--');hold on;
+plot3(zmpx,zmpy,zmpz,'K*','LineWidth',3);hold on;
+xx=[zmpx;Cpx];
+yy=[zmpy;Cpy];
+zz=[zmpz;Cpz];
+plot3(xx,yy,zz,'K-');
+grid on;axis normal;
+xlabel('x(cm)')
+ylabel('y(cm)')
+zlabel('z(cm)')
+legend('leftfoot','rightfoot','Com')
+
+figure(8)
+subplot(2,1,1)
+plot(Time,zmpx,'B--','LineWidth',1);hold on;
+plot(Time,Cpx,'R','LineWidth',1);title('Position X');grid on;
+subplot(2,1,2)
+plot(Time,Cvx,'R','LineWidth',1');title('Velocity X');hold on;
+grid on;
+
+figure(9)
+subplot(2,1,1)
+plot(Time,Cpy,'R','LineWidth',1);title('Position Y');hold on;
+plot(Time,zmpy,'B--','LineWidth',1);title('Position Y');hold on;
+grid on;
+subplot(2,1,2)
+plot(Time,Cvy,'R','LineWidth',1');title('Velocity Y');hold on;
+grid on;
